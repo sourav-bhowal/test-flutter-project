@@ -12,75 +12,139 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.orange),
-      ),
-      home: const MyHomePage(title: 'Flutter Home Page'),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.orange)),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  void _decrementCounter() {
-    setState(() {
-      if (_counter > 0) {
-        _counter--;
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: .center,
-          children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+      appBar: AppBar(title: Text("Flutter Container")),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          FloatingActionButton(
-            onPressed: _decrementCounter,
-            tooltip: 'Decrement',
-            child: const Icon(Icons.remove),
+          Container(
+            width: 200,
+            height: 100,
+            color: Colors.blueAccent,
+            child: Center(
+              child: Text(
+                "Hello World",
+                style: TextStyle(fontSize: 24, color: Colors.deepOrange),
+              ),
+            ),
           ),
-          const SizedBox(width: 16),
-          FloatingActionButton(
-            onPressed: _incrementCounter,
-            tooltip: 'Increment',
-            child: const Icon(Icons.add),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Container>[
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.red,
+                child: Center(
+                  child: Text(
+                    "Hello",
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ),
+                ),
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.green,
+                child: Center(child: Image.asset("assets/images/img1.jpg")),
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.blue,
+                child: Center(
+                  child: Text(
+                    "World",
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
+      // Row(
+      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   children: [
+      //     Container(
+      //       width: 100,
+      //       height: 100,
+      //       color: Colors.red,
+      //       child: Center(
+      //         child: Text(
+      //           "Hello",
+      //           style: TextStyle(fontSize: 20, color: Colors.white),
+      //         ),
+      //       ),
+      //     ),
+      //     Container(
+      //       width: 100,
+      //       height: 100,
+      //       color: Colors.green,
+      //       child: Center(
+      //         child: Image.asset("assets/images/img1.jpg"),
+      //       ),
+      //     ),
+      //     Container(
+      //       width: 100,
+      //       height: 100,
+      //       color: Colors.blue,
+      //       child: Center(
+      //         child: Text(
+      //           "World",
+      //           style: TextStyle(fontSize: 20, color: Colors.white),
+      //         ),
+      //       ),
+      //     ),
+      //   ],
+      // ),
+      // Image.asset("assets/images/img1.jpg"),
+      // ElevatedButton(
+      //   onPressed: () {
+      //     print("wefwefrr");
+      //   },
+      //   child: Text("Elevated Button"),
+      // ),
+      // TextButton(
+      //   onPressed: () {
+      //     print("hello");
+      //   },
+      //   onLongPress: () {
+      //     print("long press");
+      //   },
+      //   child: Text('Press Me'),
+      // ),
+      // Center(
+      //   child: Container(
+      //     width: 200,
+      //     height: 100,
+      //     color: Colors.blueAccent,
+      //     child: Center(
+      //       child: Text(
+      //         "Hello World",
+      //         style: TextStyle(fontSize: 24, color: Colors.deepOrange),
+      //       ),
+      //     ),
+      //   ),
+      // ),
     );
   }
 }
